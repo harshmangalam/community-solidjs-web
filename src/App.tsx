@@ -2,7 +2,7 @@ import { HopeProvider } from "@hope-ui/solid";
 import { Route, Routes } from "solid-app-router";
 import { Component, lazy, Suspense } from "solid-js";
 
-const HomeRoute = lazy(() => import("./routes/HomeRoute"));
+const HomeRoute = lazy(() => import("@/routes/HomeRoute"));
 const App: Component = () => {
   return (
     <HopeProvider config={{ initialColorMode: "dark" }}>
