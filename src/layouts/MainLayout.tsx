@@ -17,6 +17,8 @@ import ProfileMenu from "@/components/ProfileMenu";
 
 import { BsPencilSquare } from "solid-icons/bs";
 import Search from "@/components/Search";
+import Logo from "@/components/Logo";
+import SideDrawer from "@/components/SideDrawer";
 
 const MainLayout: Component = () => {
   return (
@@ -31,12 +33,11 @@ const MainLayout: Component = () => {
           px={"$4"}
           maxW={"$containerXl"}
         >
-          <Link href="/">
-            <HStack spacing={"$2"}>
-              <Icon as={SiHashnode} w={"$6"} h={"$6"} />
-              <Heading fontSize={"$2xl"}>Community</Heading>
-            </HStack>
-          </Link>
+          <HStack spacing={"$2"}>
+            {/* drawer  */}
+            <SideDrawer />
+            <Logo />
+          </HStack>
 
           <Box>
             <Search />
@@ -62,6 +63,7 @@ const MainLayout: Component = () => {
           </HStack>
         </Flex>
       </Box>
+
       {/* main  */}
 
       <Box as="main">
