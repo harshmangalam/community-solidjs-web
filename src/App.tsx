@@ -5,6 +5,7 @@ import { Component, lazy, Suspense } from "solid-js";
 // routes
 const HomeRoute = lazy(() => import("@/routes/HomeRoute"));
 const ListingRoute = lazy(() => import("@/routes/ListingRoute"));
+const ArticleRoute = lazy(() => import("@/routes/ArticleRoute"));
 
 // layouts
 
@@ -17,6 +18,7 @@ const App: Component = () => {
           <Route path="/" element={<MainLayout />}>
             <Route path="/" element={<HomeRoute />} />
             <Route path="/listings" element={<ListingRoute />} />
+            <Route path="/articles" element={<ArticleRoute />} />
           </Route>
         </Routes>
       </Suspense>
