@@ -5,7 +5,6 @@ import {
   Flex,
   Heading,
   HStack,
-  Image,
   SimpleGrid,
   Tag,
   Text,

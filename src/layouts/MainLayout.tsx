@@ -11,7 +11,7 @@ const MainLayout: Component = () => {
       {/* navbar  */}
       <Navbar />
       {/* main  */}
-      <Box as="main" py={"$12"}>
+      <Box as="main" py={"$24"}>
         <Outlet />
       </Box>
 
