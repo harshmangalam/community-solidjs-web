@@ -1,15 +1,6 @@
-import {
-  Box,
-  Button,
-  Flex,
-  Heading,
-  HStack,
-  Icon,
-  IconButton,
-} from "@hope-ui/solid";
-import { Link, Outlet } from "solid-app-router";
+import { Box, Button, Flex, HStack, IconButton } from "@hope-ui/solid";
+import { Outlet } from "solid-app-router";
 import type { Component } from "solid-js";
-import { SiHashnode } from "solid-icons/si";
 import { BsGithub } from "solid-icons/bs";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 import Notifications from "@/components/Notifications";
@@ -39,11 +30,14 @@ const MainLayout: Component = () => {
             <Logo />
           </HStack>
 
-          <Box>
+          <Box display={{ "@initial": "none", "@md": "block" }}>
             <Search />
           </Box>
 
-          <HStack spacing={"$2"}>
+          <HStack
+            spacing={"$2"}
+            display={{ "@initial": "none", "@md": "flex" }}
+          >
             <Button
               variant={"subtle"}
               colorScheme="info"

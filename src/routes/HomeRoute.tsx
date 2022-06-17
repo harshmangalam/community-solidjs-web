@@ -18,29 +18,33 @@ import { Link } from "solid-app-router";
 const HomeRoute: Component = () => {
   return (
     <Box>
-      <SimpleGrid
-        columns={{ "@initial": 1, "@md": 2 }}
-        gap={"$4"}
+      <Flex
         maxW="$containerXl"
         mx={"auto"}
         alignItems={{ "@initial": "center" }}
         px={"$4"}
         mt={"$8"}
-        justifyContent={{ "@initial": "center" }}
+        justifyContent={"center"}
       >
-        <VStack
-          spacing={"$8"}
-          mt={"$8"}
-          maxW="$containerSm"
-          mx="auto"
-          alignItems={"flex-start"}
-        >
-          <Heading lineHeight={1} fontSize={"$6xl"}>
-            Where the community create and read articles
+        <VStack spacing={"$8"} mt={"$8"} maxW="$containerMd" mx="auto">
+          <Heading
+            lineHeight={1}
+            fontSize={{ "@initial": "$4xl", "@md": "$6xl" }}
+            textAlign="center"
+          >
+            Where The{" "}
+            <Box as={"span"} color="$info10">
+              Open Source
+            </Box>{" "}
+            Community Create And Read
+            <Box as={"span"} color="$warning10">
+              {" "}
+              Articles
+            </Box>
           </Heading>
-          <Text fontSize={"$2xl"}>
-            Feature rich blogging platform for communities havings articles,
-            code nippets , podcast and much more for busy developers
+          <Text textAlign={"center"} fontSize={"$2xl"}>
+            An open source blogging platform build for developers communities
+            having feature rich articles listings and much more...
           </Text>
           <Button
             variant={"solid"}
@@ -52,14 +56,12 @@ const HomeRoute: Component = () => {
             Lets Start
           </Button>
         </VStack>
+      </Flex>
 
-        <Image src="https://hashnode.com/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fres%2Fhashnode%2Fimage%2Fupload%2Fv1643230111752%2Fuv4w72h8g.png%3Fauto%3Dcompress&w=1920&q=75" />
-      </SimpleGrid>
-
-      <Box bg={"$blackAlpha12"} mt="$8">
+      <Box bg={"$blackAlpha12"} mt="$8" px={"$4"}>
         <SimpleGrid
           px={"$4"}
-          columns={{ "@initial": 1, "@md": 6 }}
+          columns={{ "@initial": 2, "@sm": 3, "@md": 3, "@lg": 6 }}
           maxW="$containerXl"
           mx={"auto"}
         >
@@ -90,10 +92,14 @@ const HomeRoute: Component = () => {
         </SimpleGrid>
       </Box>
 
-      <Box mt={"$8"} maxW="$containerXl" mx={"auto"}>
+      <Box mt={"$8"} maxW="$containerXl" mx={"auto"} px={"$4"}>
         <Heading fontSize={"$2xl"}>Tags</Heading>
-        <SimpleGrid mt={"$4"} columns={4} gap="$4">
-          <For each={[...Array(8)]}>
+        <SimpleGrid
+          mt={"$4"}
+          columns={{ "@initial": 1, "@md": 2, "@lg": 3 }}
+          gap="$4"
+        >
+          <For each={[...Array(6)]}>
             {(tag) => (
               <Box
                 as={Link}
@@ -120,10 +126,14 @@ const HomeRoute: Component = () => {
         </SimpleGrid>
       </Box>
 
-      <Box mt={"$8"} bg="$neutral3" py={"$8"}>
+      <Box mt={"$8"} bg="$neutral3" py={"$8"} px={"$4"}>
         <Box maxW="$containerXl" mx={"auto"}>
           <Heading fontSize={"$2xl"}>Listings</Heading>
-          <SimpleGrid mt={"$4"} columns={3} gap="$4">
+          <SimpleGrid
+            mt={"$4"}
+            columns={{ "@initial": 1, "@md": 2, "@lg": 3 }}
+            gap="$4"
+          >
             <For each={[...Array(6)]}>
               {(listing) => (
                 <Box
@@ -136,21 +146,27 @@ const HomeRoute: Component = () => {
                     Beta testers wanted for software development automation
                     project
                   </Heading>
-                  <HStack spacing="$4" mt={"$2"}>
+                  <Flex flexWrap="wrap" gap="$2" mt={"$4"}>
                     <Tag colorScheme="info">Javascript</Tag>
                     <Tag colorScheme="info">React Js</Tag>
                     <Tag colorScheme="info">Material UI</Tag>
                     <Tag colorScheme="info">GraphQL</Tag>
-                  </HStack>
+                    <Tag colorScheme="info">GraphQL</Tag>
+                    <Tag colorScheme="info">GraphQL</Tag>
+                  </Flex>
 
-                  <Text mt={"$4"}>
+                  <Text mt={"$4"} textAlign="justify">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Debitis reiciendis quibusdam laboriosam quaerat distinctio
                     quod perspiciatis, dolores nostrum quos, quam neque cum,
                     labore explicabo inventore. Saepe molestias sed ipsam
                     numquam.
                   </Text>
-                  <Flex justifyContent={"space-between"} mt={"$4"} alignItems="center">
+                  <Flex
+                    justifyContent={"space-between"}
+                    mt={"$4"}
+                    alignItems="center"
+                  >
                     <HStack spacing={"$4"}>
                       <Avatar
                         size={"sm"}
