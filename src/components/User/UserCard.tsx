@@ -20,7 +20,7 @@ const UserCard: Component = () => {
       justifyContent="space-between"
       py={"$2"}
       px={"$2"}
-      _hover={{ bg: "$neutral6" }}
+      _hover={{ bg: "$neutral4" }}
       w="$full"
       rounded={"$lg"}
     >
