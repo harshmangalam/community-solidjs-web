@@ -4,18 +4,20 @@ import type { Component } from "solid-js";
 
 import MobileBottomSheet from "@/components/MobileBottomSheet";
 import Navbar from "@/components/Navbar";
+import MenuSidebar from "@/components/MenuSidebar";
+import RightSidebar from "@/components/RightSidebar";
 
 const MainLayout: Component = () => {
   return (
     <>
-      {/* navbar  */}
       <Navbar />
-      {/* main  */}
-      <Box as="main" py={"$24"}>
+
+      <MenuSidebar />
+      <Box ml={"$80"} mr={"$80"} minH={"$screenH"} py={"$20"} px={"$4"}>
         <Outlet />
       </Box>
+      <RightSidebar />
 
-      {/* bottom sheet  */}
       <Box display={{ "@initial": "block", "@md": "none" }}>
         <MobileBottomSheet />
       </Box>

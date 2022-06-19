@@ -12,11 +12,11 @@ const MobileBottomSheet: Component = () => {
       bottom={0}
       left={0}
       right={0}
-      py={"$2"}
       px={"$4"}
       alignItems="center"
       justifyContent={"space-between"}
       bg="$neutral4"
+      h={"$16"}
     >
       <IconButton
         aria-label="Home"

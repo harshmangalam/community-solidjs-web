@@ -19,21 +19,10 @@ import { Component, For } from "solid-js";
 import Logo from "./Logo";
 import { CgMenuRight } from "solid-icons/cg";
 
-import { BsGithub } from "solid-icons/bs";
-import { FaBrandsDev } from "solid-icons/fa";
-import { BsTwitter } from "solid-icons/bs";
-
-import { VscHome } from "solid-icons/vsc";
-import { AiOutlineCompass } from "solid-icons/ai";
-import { RiDocumentDraftLine } from "solid-icons/ri";
-import { BsBookmarkHeart } from "solid-icons/bs";
-import { TiTags } from "solid-icons/ti";
-import { BsViewList } from "solid-icons/bs";
-import { RiDocumentArticleLine } from "solid-icons/ri";
-
 import { Link } from "solid-app-router";
+import { menuLinks, socialLinks } from "@/metaData/links";
 
-const SideDrawer: Component = () => {
+const MobileDrawer: Component = () => {
   return function DrawerExample() {
     const { isOpen, onOpen, onClose } = createDisclosure();
 
@@ -59,7 +48,7 @@ const SideDrawer: Component = () => {
             <DrawerBody>
               <Box>
                 <VStack spacing={"$2"} alignItems={"flex-start"}>
-                  <For each={links}>
+                  <For each={menuLinks}>
                     {(link) => (
                       <HStack
                         as={Link}
@@ -95,7 +84,7 @@ const SideDrawer: Component = () => {
                     {(link) => (
                       <IconButton
                         aria-label={link.name}
-                        icon={link.icon()}
+                        icon={<Icon as={link.icon} />}
                         variant="subtle"
                         colorScheme={"neutral"}
                         rounded="$full"
@@ -112,95 +101,4 @@ const SideDrawer: Component = () => {
   };
 };
 
-export default SideDrawer;
-
-const socialLinks = [
-  {
-    name: "Github",
-    icon: () => <BsGithub size={20} />,
-    link: "",
-  },
-  {
-    name: "DEV Community",
-    icon: () => <FaBrandsDev size={20} />,
-    link: "",
-  },
-  {
-    name: "Twitter",
-    icon: () => <BsTwitter size={20} />,
-    link: "",
-  },
-];
-
-{
-  /* const links = [
-  {
-    name: "Home",
-    icon: () => <VscHome size={24} />,
-    href: "",
-  },
-  {
-    name: "Explore",
-    icon: () => <AiOutlineCompass size={24} />,
-    href: "",
-  },
-  {
-    name: "Tags",
-    icon: () => <TiTags size={24} />,
-    href: "",
-  },
-  {
-    name: "Listings",
-    icon: () => <BsViewList size={24} />,
-    href: "",
-  },
-  {
-    name: "Drafts",
-    icon: () => <RiDocumentDraftLine size={24} />,
-    href: "",
-  },
-  {
-    name: "Bookmarks",
-    icon: () => <BsBookmarkHeart size={24} />,
-    href: "",
-  },
-]; */
-}
-
-const links = [
-  {
-    name: "Home",
-    icon: VscHome,
-    href: "",
-  },
-  {
-    name: "Explore",
-    icon: AiOutlineCompass,
-    href: "explore",
-  },
-  {
-    name: "Articles",
-    icon: RiDocumentArticleLine,
-    href: "articles",
-  },
-  {
-    name: "Tags",
-    icon: TiTags,
-    href: "tags",
-  },
-  {
-    name: "Listings",
-    icon: BsViewList,
-    href: "listings",
-  },
-  {
-    name: "Drafts",
-    icon: RiDocumentDraftLine,
-    href: "drafts",
-  },
-  {
-    name: "Bookmarks",
-    icon: BsBookmarkHeart,
-    href: "bookmarks",
-  },
-];
+export default MobileDrawer;

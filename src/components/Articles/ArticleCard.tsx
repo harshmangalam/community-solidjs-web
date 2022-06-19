@@ -20,7 +20,7 @@ import { BsHeart } from "solid-icons/bs";
 import { FaCommentAlt } from "solid-icons/fa";
 const ArticleCard: Component = () => {
   return (
-    <Box>
+    <Box borderWidth={"thin"} rounded="$md" p={"$4"} borderColor="$neutral10">
       <Flex justifyContent={"space-between"} alignItems="center">
         <HStack spacing={"$4"}>
           <Avatar
