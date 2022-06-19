@@ -21,6 +21,7 @@ import { CgMenuRight } from "solid-icons/cg";
 
 import { Link } from "solid-app-router";
 import { menuLinks, socialLinks } from "@/metaData/links";
+import Footer from "./Footer";
 
 const MobileDrawer: Component = () => {
   return function DrawerExample() {
@@ -70,29 +71,7 @@ const MobileDrawer: Component = () => {
             </DrawerBody>
 
             <DrawerFooter justifyContent={"center"}>
-              <VStack spacing={"$2"}>
-                <Box textAlign={"center"}>
-                  <Text as={"span"} fontWeight="$semibold">
-                    Community
-                  </Text>{" "}
-                  <Text as={"span"} fontSize={"$sm"}>
-                    &bull; Made for community by community
-                  </Text>
-                </Box>
-                <HStack spacing={"$4"}>
-                  <For each={socialLinks}>
-                    {(link) => (
-                      <IconButton
-                        aria-label={link.name}
-                        icon={<Icon as={link.icon} />}
-                        variant="subtle"
-                        colorScheme={"neutral"}
-                        rounded="$full"
-                      />
-                    )}
-                  </For>
-                </HStack>
-              </VStack>
+              <Footer />
             </DrawerFooter>
           </DrawerContent>
         </Drawer>
