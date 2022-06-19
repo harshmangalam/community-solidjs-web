@@ -14,11 +14,11 @@ const MainLayout: Component = () => {
 
       <MenuSidebar />
       <Box
-        ml={"$80"}
-        mr={"$80"}
+        ml={{ "@initial": 0, "@lg": "$80" }}
+        mr={{ "@initial": 0, "@xl": "$80" }}
         minH={"$screenH"}
         py={"$20"}
-        borderWidth={"thin"}
+        borderWidth={{ "@initial": 0, "@md": "thin" }}
         borderColor="$neutral6"
         bg={"$neutral1"}
       >

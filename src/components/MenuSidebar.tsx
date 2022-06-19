@@ -13,6 +13,7 @@ const MenuSidebar: Component = () => {
       w={"$80"}
       px={"$2"}
       py="$4"
+      display={{ "@initial": "none", "@lg": "block" }}
     >
       <VStack spacing={"$2"} alignItems={"flex-start"}>
         <For each={menuLinks}>

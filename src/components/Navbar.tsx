@@ -36,17 +36,17 @@ const Navbar: Component = () => {
     >
       <HStack spacing={"$2"}>
         {/* drawer  */}
-        <Box display={{ "@initial": "block", "@md": "none" }}>
+        <Box display={{ "@initial": "block", "@lg": "none" }}>
           <MobileDrawer />
         </Box>
         <Logo />
       </HStack>
 
-      <Box display={{ "@initial": "none", "@md": "block" }}>
+      <Box display={{ "@initial": "none", "@lg": "block" }}>
         <Search />
       </Box>
 
-      <HStack spacing={"$2"} display={{ "@initial": "none", "@md": "flex" }}>
+      <HStack spacing={"$2"} display={{ "@initial": "none", "@lg": "flex" }}>
         <Button
           variant={"subtle"}
           colorScheme="info"

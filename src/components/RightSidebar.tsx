@@ -14,6 +14,7 @@ const RightSidebar: Component = () => {
       px="$2"
       overflowY={"auto"}
       py="$4"
+      display={{ "@initial": "none", "@xl": "block" }}
     >
       <Box>
         <Heading fontSize={"$lg"}>Bloggers</Heading>
