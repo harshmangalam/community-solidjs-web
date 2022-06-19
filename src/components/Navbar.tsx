@@ -8,7 +8,14 @@ import { BsPencilSquare } from "solid-icons/bs";
 import Search from "@/components/Search";
 import Logo from "@/components/Logo";
 import MobileDrawer from "@/components/MobileDrawer";
-import { Box, Button, Flex, HStack, IconButton } from "@hope-ui/solid";
+import {
+  Box,
+  Button,
+  Flex,
+  HStack,
+  IconButton,
+  useColorModeValue,
+} from "@hope-ui/solid";
 const Navbar: Component = () => {
   return (
     <Flex
@@ -25,7 +32,7 @@ const Navbar: Component = () => {
       alignItems="center"
       borderBottomWidth={"thin"}
       borderBottomColor={"$neutral6"}
-      bg="white"
+      bg={useColorModeValue("white", "$neutral1")()}
     >
       <HStack spacing={"$2"}>
         {/* drawer  */}
