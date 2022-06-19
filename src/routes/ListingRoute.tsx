@@ -7,7 +7,6 @@ import {
   HStack,
   SimpleGrid,
   Tag,
-  Text,
 } from "@hope-ui/solid";
 import { Link } from "solid-app-router";
 import { Component, For } from "solid-js";

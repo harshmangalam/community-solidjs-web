@@ -13,7 +13,7 @@ const ProfileRoute = lazy(() => import("@/routes/ProfileRoute"));
 const MainLayout = lazy(() => import("@/layouts/MainLayout"));
 const App: Component = () => {
   return (
-    <HopeProvider config={{ initialColorMode: "dark" }}>
+    <HopeProvider config={{ initialColorMode: "light" }}>
       <Suspense fallback={<p>Loading...</p>}>
         <Routes>
           <Route path="/" element={<MainLayout />}>

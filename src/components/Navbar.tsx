@@ -25,7 +25,7 @@ const Navbar: Component = () => {
       alignItems="center"
       borderBottomWidth={"thin"}
       borderBottomColor={"$neutral6"}
-      bg="$neutral1"
+      bg="white"
     >
       <HStack spacing={"$2"}>
         {/* drawer  */}

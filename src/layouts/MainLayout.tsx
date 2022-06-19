@@ -13,7 +13,15 @@ const MainLayout: Component = () => {
       <Navbar />
 
       <MenuSidebar />
-      <Box ml={"$80"} mr={"$80"} minH={"$screenH"} py={"$20"} px={"$4"}>
+      <Box
+        ml={"$80"}
+        mr={"$80"}
+        minH={"$screenH"}
+        py={"$20"}
+        borderWidth={"thin"}
+        borderColor="$neutral6"
+        bg={"$neutral1"}
+      >
         <Outlet />
       </Box>
       <RightSidebar />

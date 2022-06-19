@@ -23,7 +23,7 @@ const MenuSidebar: Component = () => {
               spacing={"$4"}
               py="$2"
               px={"$2"}
-              _hover={{ bg: "$neutral6" }}
+              _hover={{ bg: "$neutral4" }}
               w="$full"
               rounded={"$md"}
             >

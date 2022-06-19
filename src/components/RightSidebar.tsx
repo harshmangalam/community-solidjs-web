@@ -1,6 +1,7 @@
-import { Box, VStack } from "@hope-ui/solid";
+import { Box, Heading, VStack } from "@hope-ui/solid";
 import { Component, For } from "solid-js";
 import TagCard from "@/components/Tag/TagCard";
+import UserCard from "@/components/User/UserCard";
 
 const RightSidebar: Component = () => {
   return (
@@ -14,9 +15,18 @@ const RightSidebar: Component = () => {
       overflowY={"auto"}
       py="$4"
     >
-      <VStack>
-        <For each={[...Array(13)]}>{(tag) => <TagCard />}</For>
-      </VStack>
+      <Box>
+        <Heading fontSize={"$lg"}>Bloggers</Heading>
+        <VStack mt={"$4"}>
+          <For each={[...Array(5)]}>{(user) => <UserCard />}</For>
+        </VStack>
+      </Box>
+      <Box mt={"$4"}>
+        <Heading fontSize={"$lg"}>Tags</Heading>
+        <VStack mt={"$4"}>
+          <For each={[...Array(5)]}>{(tag) => <TagCard />}</For>
+        </VStack>
+      </Box>
     </Box>
   );
 };
