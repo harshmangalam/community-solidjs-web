@@ -63,7 +63,7 @@ const SideDrawer: Component = () => {
                     {(link) => (
                       <HStack
                         as={Link}
-                        href="/"
+                        href={`/${link.href}`}
                         spacing={"$4"}
                         py="$2"
                         px={"$2"}
@@ -176,31 +176,31 @@ const links = [
   {
     name: "Explore",
     icon: AiOutlineCompass,
-    href: "",
+    href: "explore",
   },
   {
     name: "Articles",
     icon: RiDocumentArticleLine,
-    href: "",
+    href: "articles",
   },
   {
     name: "Tags",
     icon: TiTags,
-    href: "",
+    href: "tags",
   },
   {
     name: "Listings",
     icon: BsViewList,
-    href: "",
+    href: "listings",
   },
   {
     name: "Drafts",
     icon: RiDocumentDraftLine,
-    href: "",
+    href: "drafts",
   },
   {
     name: "Bookmarks",
     icon: BsBookmarkHeart,
-    href: "",
+    href: "bookmarks",
   },
 ];
