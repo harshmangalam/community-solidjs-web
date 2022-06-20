@@ -7,11 +7,7 @@ const FeedRoute = lazy(() => import("@/routes/FeedRoute"));
 const ListingRoute = lazy(() => import("@/routes/ListingRoute"));
 const ArticleRoute = lazy(() => import("@/routes/ArticleRoute"));
 const ProfileRoute = lazy(() => import("@/routes/ProfileRoute"));
-
-// tags
-
-const TagsRoute = lazy(() => import("@/routes/Tags"));
-const TagsHomeRoute = lazy(() => import("@/routes/Tags/TagsHomeRoute"));
+const TagsRoute = lazy(() => import("@/routes/TagsRoute"));
 // layouts
 
 const MainLayout = lazy(() => import("@/layouts/MainLayout"));
@@ -24,9 +20,7 @@ const App: Component = () => {
             <Route path="/" element={<FeedRoute />} />
             <Route path="/listings" element={<ListingRoute />} />
             <Route path="/articles" element={<ArticleRoute />} />
-            <Route path="/tags" element={<TagsRoute />}>
-              <Route path="/" element={<TagsHomeRoute />} />
-            </Route>
+            <Route path="/tags" element={<TagsRoute />} />
             <Route path="/:userName" element={<ProfileRoute />} />
           </Route>
         </Routes>
