@@ -2,6 +2,7 @@ import ListingCard from "@/components/Listing/ListingCard";
 import {
   Box,
   Button,
+  Divider,
   Flex,
   Heading,
   HStack,
@@ -13,44 +14,47 @@ import { Component, For } from "solid-js";
 
 const ListingRoute: Component = () => {
   return (
-    <Box maxW={"$containerXl"} mx="auto" px={"$4"}>
-      <Flex justifyContent={"space-between"}>
-        <Heading fontSize={"$3xl"}>Listings</Heading>
+    <Box>
+      <HStack justifyContent={"space-between"} px="$4" spacing={"$4"}>
+        <Heading flexGrow={1} fontSize={"$2xl"}>
+          Listings
+        </Heading>
         <HStack spacing={"$2"}>
           <Button colorScheme={"info"}>Create</Button>
           <Button colorScheme={"accent"}>Manage</Button>
         </HStack>
-      </Flex>
+      </HStack>
+
+      <Divider mt={"$4"} mb="$2" />
 
       <HStack
+        py={"$2"}
         overflowX={"auto"}
         overflowY="hidden"
         spacing={"$4"}
-        mt={"$4"}
-        py="$4"
+        px={"$4"}
       >
-        <For each={[...Array(10)]}>
+        <For each={[...Array(8)]}>
           {(listing) => (
             <Tag
               style={{ "white-space": "nowrap" }}
               as={Link}
               href="/listings"
               size={"lg"}
-              colorScheme="primary"
+              colorScheme="neutral"
             >
               Offering Mentorship
             </Tag>
           )}
         </For>
       </HStack>
+      <Divider my={"$2"} />
 
-      <SimpleGrid
-        columns={{ "@initial": 1, "@md": 2, "@lg": 3 }}
-        gap={"$4"}
-        mt="$4"
-      >
-        <For each={[...Array(8)]}>{(listing) => <ListingCard />}</For>
-      </SimpleGrid>
+      <Box mt={"$8"} px="$4">
+        <SimpleGrid columns={{ "@initial": 1, "@md": 2 }} gap={"$4"} mt="$4">
+          <For each={[...Array(8)]}>{(listing) => <ListingCard />}</For>
+        </SimpleGrid>
+      </Box>
     </Box>
   );
 };

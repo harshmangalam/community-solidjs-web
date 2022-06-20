@@ -6,6 +6,7 @@ import {
   HStack,
   Tag,
   Text,
+  useColorModeValue,
   VStack,
 } from "@hope-ui/solid";
 import { Component } from "solid-js";
@@ -13,8 +14,8 @@ import { Component } from "solid-js";
 const ListingCard: Component = () => {
   return (
     <Box
-      bg="$blackAlpha10"
-      _hover={{ bg: "$blackAlpha11" }}
+      bg={useColorModeValue("white", "$neutral3")()}
+      shadow="$sm"
       rounded="$md"
       p={"$4"}
     >
@@ -22,12 +23,24 @@ const ListingCard: Component = () => {
         Beta testers wanted for software development automation project
       </Heading>
       <Flex flexWrap="wrap" gap="$2" mt={"$4"}>
-        <Tag colorScheme="info">Javascript</Tag>
-        <Tag colorScheme="info">React Js</Tag>
-        <Tag colorScheme="info">Material UI</Tag>
-        <Tag colorScheme="info">GraphQL</Tag>
-        <Tag colorScheme="info">GraphQL</Tag>
-        <Tag colorScheme="info">GraphQL</Tag>
+        <Tag colorScheme="neutral" variant={"outline"}>
+          Javascript
+        </Tag>
+        <Tag colorScheme="neutral" variant={"outline"}>
+          React Js
+        </Tag>
+        <Tag colorScheme="neutral" variant={"outline"}>
+          Material UI
+        </Tag>
+        <Tag colorScheme="neutral" variant={"outline"}>
+          GraphQL
+        </Tag>
+        <Tag colorScheme="neutral" variant={"outline"}>
+          GraphQL
+        </Tag>
+        <Tag colorScheme="neutral" variant={"outline"}>
+          GraphQL
+        </Tag>
       </Flex>
 
       <Text mt={"$4"} textAlign="justify">
@@ -55,5 +68,4 @@ const ListingCard: Component = () => {
   );
 };
 
-
-export default ListingCard
+export default ListingCard;
