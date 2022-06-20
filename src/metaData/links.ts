@@ -1,4 +1,3 @@
-import { AiOutlineCompass } from "solid-icons/ai";
 import {
   BsBookmarkHeart,
   BsGithub,
@@ -6,7 +5,7 @@ import {
   BsViewList,
 } from "solid-icons/bs";
 import { FaBrandsDev } from "solid-icons/fa";
-import { RiDocumentArticleLine, RiDocumentDraftLine } from "solid-icons/ri";
+import { RiDocumentDraftLine } from "solid-icons/ri";
 import { TiTags } from "solid-icons/ti";
 import { VscHome } from "solid-icons/vsc";
 
@@ -16,16 +15,7 @@ export const menuLinks = [
     icon: VscHome,
     href: "",
   },
-  {
-    name: "Explore",
-    icon: AiOutlineCompass,
-    href: "explore",
-  },
-  {
-    name: "Articles",
-    icon: RiDocumentArticleLine,
-    href: "articles",
-  },
+
   {
     name: "Tags",
     icon: TiTags,

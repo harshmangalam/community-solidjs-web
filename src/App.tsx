@@ -5,7 +5,6 @@ import { Component, lazy, Suspense } from "solid-js";
 // routes
 const FeedRoute = lazy(() => import("@/routes/FeedRoute"));
 const ListingRoute = lazy(() => import("@/routes/ListingRoute"));
-const ArticleRoute = lazy(() => import("@/routes/ArticleRoute"));
 const ProfileRoute = lazy(() => import("@/routes/ProfileRoute"));
 const TagsRoute = lazy(() => import("@/routes/TagsRoute"));
 // layouts
@@ -19,7 +18,7 @@ const App: Component = () => {
           <Route path="/" element={<MainLayout />}>
             <Route path="/" element={<FeedRoute />} />
             <Route path="/listings" element={<ListingRoute />} />
-            <Route path="/articles" element={<ArticleRoute />} />
+
             <Route path="/tags" element={<TagsRoute />} />
             <Route path="/:userName" element={<ProfileRoute />} />
           </Route>

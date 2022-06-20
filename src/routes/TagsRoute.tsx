@@ -1,5 +1,5 @@
 import TagCard from "@/components/Tag/TagCard";
-import TagFilterMenu from "@/components/Tag/TagFilterMenu";
+
 import { Box, Divider, Heading, HStack, SimpleGrid } from "@hope-ui/solid";
 
 import { Component, For } from "solid-js";
@@ -11,8 +11,6 @@ const TagsRoute: Component = () => {
         <Heading flexGrow={1} fontSize={"$2xl"}>
           Tags
         </Heading>
-
-        <TagFilterMenu />
       </HStack>
       <Divider py={"$2"} />
 
