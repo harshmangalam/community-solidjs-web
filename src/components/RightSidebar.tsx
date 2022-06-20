@@ -24,7 +24,7 @@ const RightSidebar: Component = () => {
       </Box>
       <Box mt={"$4"}>
         <Heading fontSize={"$lg"}>Tags</Heading>
-        <VStack mt={"$4"}>
+        <VStack mt={"$4"} spacing={"$2"}>
           <For each={[...Array(5)]}>{(tag) => <TagCard />}</For>
         </VStack>
       </Box>

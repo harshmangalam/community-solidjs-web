@@ -48,7 +48,7 @@ const Navbar: Component = () => {
 
       <HStack spacing={"$2"} display={{ "@initial": "none", "@lg": "flex" }}>
         <Button
-          variant={"subtle"}
+          variant={"solid"}
           colorScheme="info"
           leftIcon={<BsPencilSquare size={20} />}
         >

@@ -23,6 +23,7 @@ const TagCard: Component = () => {
       _hover={{ bg: "$neutral4" }}
       w="$full"
       rounded={"$lg"}
+      bg={"$neutral3"}
     >
       <HStack spacing={"$4"}>
         <Image
