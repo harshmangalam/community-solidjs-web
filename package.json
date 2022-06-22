@@ -17,9 +17,11 @@
   "dependencies": {
     "@hope-ui/solid": "^0.6.2",
     "@stitches/core": "^1.2.8",
+    "axios": "^0.27.2",
     "solid-app-router": "^0.3.3",
     "solid-icons": "^0.4.13",
     "solid-js": "^1.4.2",
-    "solid-transition-group": "^0.0.10"
+    "solid-transition-group": "^0.0.10",
+    "yup": "^0.32.11"
   }
 }

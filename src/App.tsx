@@ -1,4 +1,5 @@
-import { HopeProvider } from "@hope-ui/solid";
+import { HopeProvider, NotificationsProvider } from "@hope-ui/solid";
+import axios from "axios";
 import { Route, Routes } from "solid-app-router";
 import { Component, lazy, Suspense } from "solid-js";
 
@@ -13,22 +14,26 @@ const AuthLoginRoute = lazy(() => import("@/routes/auth/AuthLoginRoute"));
 // layouts
 const MainLayout = lazy(() => import("@/layouts/MainLayout"));
 const AuthLayout = lazy(() => import("@/layouts/AuthLayout"));
+
+axios.defaults.baseURL = "http://localhost:4000";
 const App: Component = () => {
   return (
     <HopeProvider config={{ initialColorMode: "dark" }}>
-      <Suspense fallback={<p>Loading...</p>}>
-        <Routes>
-          <Route path="/auth" element={<AuthLayout />}>
-            <Route path="/" element={<AuthLoginRoute />} />
-          </Route>
-          <Route path="/" element={<MainLayout />}>
-            <Route path="/" element={<FeedRoute />} />
-            <Route path="/listings" element={<ListingRoute />} />
-            <Route path="/tags" element={<TagsRoute />} />
-            <Route path="/:userName" element={<ProfileRoute />} />
-          </Route>
-        </Routes>
-      </Suspense>
+      <NotificationsProvider>
+        <Suspense fallback={<p>Loading...</p>}>
+          <Routes>
+            <Route path="/auth" element={<AuthLayout />}>
+              <Route path="/" element={<AuthLoginRoute />} />
+            </Route>
+            <Route path="/" element={<MainLayout />}>
+              <Route path="/" element={<FeedRoute />} />
+              <Route path="/listings" element={<ListingRoute />} />
+              <Route path="/tags" element={<TagsRoute />} />
+              <Route path="/:userName" element={<ProfileRoute />} />
+            </Route>
+          </Routes>
+        </Suspense>
+      </NotificationsProvider>
     </HopeProvider>
   );
 };
