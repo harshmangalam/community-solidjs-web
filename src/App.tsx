@@ -10,6 +10,7 @@ const ProfileRoute = lazy(() => import("@/routes/ProfileRoute"));
 const TagsRoute = lazy(() => import("@/routes/TagsRoute"));
 
 const AuthLoginRoute = lazy(() => import("@/routes/auth/AuthLoginRoute"));
+const AuthSignupRoute = lazy(() => import("@/routes/auth/AuthSignupRoute"));
 
 // layouts
 const MainLayout = lazy(() => import("@/layouts/MainLayout"));
@@ -24,6 +25,7 @@ const App: Component = () => {
           <Routes>
             <Route path="/auth" element={<AuthLayout />}>
               <Route path="/" element={<AuthLoginRoute />} />
+              <Route path="/signup" element={<AuthSignupRoute />} />
             </Route>
             <Route path="/" element={<MainLayout />}>
               <Route path="/" element={<FeedRoute />} />

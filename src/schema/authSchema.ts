@@ -10,4 +10,15 @@ const loginErrorFields = {
   password: "",
 };
 
-export { loginSchema, loginErrorFields };
+const signupSchema = yup.object().shape({
+  name: yup.string().required(),
+  email: yup.string().required().email(),
+  password: yup.string().required().min(6),
+});
+
+const signupErrorFields = {
+  name: "",
+  email: "",
+  password: "",
+};
+export { loginSchema, loginErrorFields, signupSchema, signupErrorFields };

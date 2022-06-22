@@ -8,4 +8,13 @@ const login = async (payload: LoginPayload) => {
   return axios.post("/auth/login", payload);
 };
 
-export { login };
+type SignupPayload = {
+  name: string;
+  email: string;
+  password: string;
+};
+const signup = async (payload: SignupPayload) => {
+  return axios.post("/auth/signup", payload);
+};
+
+export { login, signup };
