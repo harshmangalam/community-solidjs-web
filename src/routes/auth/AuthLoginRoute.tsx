@@ -8,25 +8,44 @@ import {
   FormControl,
   FormErrorMessage,
   FormLabel,
-  Heading,
   HStack,
   Input,
-  isArray,
   notificationService,
   SimpleGrid,
   Text,
 } from "@hope-ui/solid";
+import { AxiosError } from "axios";
 import { Link, useNavigate } from "solid-app-router";
 import { Component, createSignal, Show } from "solid-js";
+import * as yup from "yup";
 
+const schema = yup.object().shape({
+  email: yup.string().required().email(),
+  password: yup.string().required().min(6),
+});
 const AuthLoginRoute: Component = () => {
   const navigate = useNavigate();
   const [email, setEmail] = createSignal("");
   const [password, setPassword] = createSignal("");
+  const [errors, setErrors] = createSignal({
+    email: "",
+    password: "",
+  });
 
   async function onSubmit(e: SubmitEvent) {
     e.preventDefault();
+    setErrors({});
     try {
+      const validationResult = await schema.validate(
+        {
+          email: email(),
+          password: password(),
+        },
+        { abortEarly: false, strict: true }
+      );
+
+      console.log(validationResult);
+
       const res = await login({ email: email(), password: password() });
       notificationService.show({
         title: "You have loggedin successfully",
@@ -39,7 +58,20 @@ const AuthLoginRoute: Component = () => {
         replace: true,
       });
     } catch (error: any) {
-      console.log(error);
+      if (error instanceof yup.ValidationError) {
+        // console.log(error.errors);
+        // console.log(error.message);
+        console.log(error.inner);
+
+        const errors = { email: "", password: "" };
+        error.inner.forEach(({ path, message }) => {
+          errors[path] = message;
+        });
+
+        setErrors(errors);
+        return;
+      }
+
       if (Array.isArray(error.response.data?.message)) {
         error.response.data.message.forEach((msg: string) => {
           notificationService.show({
@@ -49,9 +81,12 @@ const AuthLoginRoute: Component = () => {
             status: "danger",
           });
         });
-      } else {
+        return;
+      }
+
+      if (error instanceof AxiosError) {
         notificationService.show({
-          title: error.response.data?.message || error.message,
+          title: error.response?.data?.message || error.message,
           duration: 3000,
           closable: true,
           status: "danger",
@@ -77,7 +112,7 @@ const AuthLoginRoute: Component = () => {
           p={"$4"}
           onSubmit={onSubmit}
         >
-          <FormControl invalid={false}>
+          <FormControl invalid={Boolean(errors().email)}>
             <FormLabel for="email">Email address</FormLabel>
             <Input
               id="email"
@@ -85,11 +120,11 @@ const AuthLoginRoute: Component = () => {
               onInput={(e) => setEmail(e.currentTarget.value)}
               type="email"
             />
-            <Show when={false}>
-              <FormErrorMessage>Email is required.</FormErrorMessage>
+            <Show when={Boolean(errors().email)}>
+              <FormErrorMessage>{errors().email}</FormErrorMessage>
             </Show>
           </FormControl>
-          <FormControl invalid={false}>
+          <FormControl invalid={Boolean(errors().password)}>
             <FormLabel for="password">Password</FormLabel>
             <Input
               id="password"
@@ -97,8 +132,8 @@ const AuthLoginRoute: Component = () => {
               onInput={(e) => setPassword(e.currentTarget.value)}
               type="password"
             />
-            <Show when={false}>
-              <FormErrorMessage>Password is required.</FormErrorMessage>
+            <Show when={Boolean(errors().password)}>
+              <FormErrorMessage>{errors().password}</FormErrorMessage>
             </Show>
           </FormControl>
 
