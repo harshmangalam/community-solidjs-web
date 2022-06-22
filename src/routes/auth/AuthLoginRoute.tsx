@@ -14,29 +14,25 @@ import {
   SimpleGrid,
   Text,
 } from "@hope-ui/solid";
-import { AxiosError } from "axios";
 import { Link, useNavigate } from "solid-app-router";
 import { Component, createSignal, Show } from "solid-js";
-import * as yup from "yup";
+import { loginErrorFields, loginSchema } from "@/schema";
+import { handleSchemaError } from "@/utils/handleSchemaError";
+import { handleServerError } from "@/utils/handleServerError";
+import { ValidationError } from "yup";
+import { AxiosError } from "axios";
 
-const schema = yup.object().shape({
-  email: yup.string().required().email(),
-  password: yup.string().required().min(6),
-});
 const AuthLoginRoute: Component = () => {
   const navigate = useNavigate();
   const [email, setEmail] = createSignal("");
   const [password, setPassword] = createSignal("");
-  const [errors, setErrors] = createSignal({
-    email: "",
-    password: "",
-  });
+  const [errors, setErrors] = createSignal(loginErrorFields);
 
   async function onSubmit(e: SubmitEvent) {
     e.preventDefault();
-    setErrors({});
+    setErrors(loginErrorFields);
     try {
-      const validationResult = await schema.validate(
+      const validationResult = await loginSchema.validate(
         {
           email: email(),
           password: password(),
@@ -44,9 +40,8 @@ const AuthLoginRoute: Component = () => {
         { abortEarly: false, strict: true }
       );
 
-      console.log(validationResult);
+      const res = await login(validationResult);
 
-      const res = await login({ email: email(), password: password() });
       notificationService.show({
         title: "You have loggedin successfully",
         duration: 3000,
@@ -58,39 +53,12 @@ const AuthLoginRoute: Component = () => {
         replace: true,
       });
     } catch (error: any) {
-      if (error instanceof yup.ValidationError) {
-        // console.log(error.errors);
-        // console.log(error.message);
-        console.log(error.inner);
-
-        const errors = { email: "", password: "" };
-        error.inner.forEach(({ path, message }) => {
-          errors[path] = message;
-        });
-
-        setErrors(errors);
-        return;
+      if (error instanceof ValidationError) {
+        let schemaErrors = handleSchemaError(error);
+        setErrors(schemaErrors);
       }
-
-      if (Array.isArray(error.response.data?.message)) {
-        error.response.data.message.forEach((msg: string) => {
-          notificationService.show({
-            title: msg,
-            duration: 3000,
-            closable: true,
-            status: "danger",
-          });
-        });
-        return;
-      }
-
       if (error instanceof AxiosError) {
-        notificationService.show({
-          title: error.response?.data?.message || error.message,
-          duration: 3000,
-          closable: true,
-          status: "danger",
-        });
+        handleServerError(error);
       }
     }
   }
