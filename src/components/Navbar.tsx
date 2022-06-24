@@ -7,7 +7,7 @@ import ProfileMenu from "@/components/ProfileMenu";
 import { BsPencilSquare } from "solid-icons/bs";
 import Search from "@/components/Search";
 import Logo from "@/components/Logo";
-import MobileDrawer from "@/components/MobileDrawer";
+import MobileDrawer from "@/components/Sidebar/MobileDrawer";
 import {
   Box,
   Button,

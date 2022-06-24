@@ -1,5 +1,5 @@
 import { fetchCurrentUser } from "@/services";
-import { Component, createContext, onMount } from "solid-js";
+import { Component, createContext, onMount, useContext } from "solid-js";
 import { createStore } from "solid-js/store";
 import cookie from "js-cookie";
 const StateContext = createContext();
@@ -19,9 +19,11 @@ const AuthProvider: Component = (props) => {
         return;
       }
       const res = await fetchCurrentUser();
-      console.log(res);
+      setStore("isAuthenticated", true);
+      setStore("currentUser", res.data.user);
     } catch (error) {
       console.log(error);
+      cookie.remove("token");
     } finally {
       setStore("isLoading", false);
     }
@@ -36,3 +38,6 @@ const AuthProvider: Component = (props) => {
 };
 
 export default AuthProvider;
+
+export const useAuthState = () => useContext(StateContext);
+export const useAuthDispatch = () => useContext(DispatchContext);

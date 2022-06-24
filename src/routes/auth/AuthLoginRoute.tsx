@@ -40,8 +40,7 @@ const AuthLoginRoute: Component = () => {
         { abortEarly: false, strict: true }
       );
 
-      const res = await login(validationResult);
-      console.log(res.data)
+      await login(validationResult);
 
       notificationService.show({
         title: "You have loggedin successfully",

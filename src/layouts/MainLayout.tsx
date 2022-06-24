@@ -4,8 +4,8 @@ import type { Component } from "solid-js";
 
 import MobileBottomSheet from "@/components/MobileBottomSheet";
 import Navbar from "@/components/Navbar";
-import MenuSidebar from "@/components/MenuSidebar";
-import RightSidebar from "@/components/RightSidebar";
+import MenuSidebar from "@/components/Sidebar/MenuSidebar";
+import RightSidebar from "@/components/Sidebar/RightSidebar";
 
 const MainLayout: Component = () => {
   return (

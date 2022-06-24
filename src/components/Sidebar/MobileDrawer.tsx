@@ -1,5 +1,4 @@
 import {
-  Box,
   createDisclosure,
   Drawer,
   DrawerBody,
@@ -8,20 +7,14 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
-  HStack,
-  Icon,
   IconButton,
-  Text,
   Tooltip,
-  VStack,
 } from "@hope-ui/solid";
-import { Component, For } from "solid-js";
-import Logo from "./Logo";
+import { Component } from "solid-js";
+import Logo from "../Logo";
 import { CgMenuRight } from "solid-icons/cg";
-
-import { Link } from "solid-app-router";
-import { menuLinks, socialLinks } from "@/metaData/links";
-import Footer from "./Footer";
+import Footer from "../Footer";
+import LinksBody from "@/components/Sidebar/LinksBody";
 
 const MobileDrawer: Component = () => {
   return function DrawerExample() {
@@ -47,27 +40,7 @@ const MobileDrawer: Component = () => {
             </DrawerHeader>
 
             <DrawerBody>
-              <Box>
-                <VStack spacing={"$2"} alignItems={"flex-start"}>
-                  <For each={menuLinks}>
-                    {(link) => (
-                      <HStack
-                        as={Link}
-                        href={`/${link.href}`}
-                        spacing={"$4"}
-                        py="$2"
-                        px={"$2"}
-                        _hover={{ bg: "$neutral6" }}
-                        w="$full"
-                        rounded={"$md"}
-                      >
-                        <Icon as={link.icon} w={"$6"} h={"$6"} />
-                        <Text fontSize="$lg">{link.name}</Text>
-                      </HStack>
-                    )}
-                  </For>
-                </VStack>
-              </Box>
+              <LinksBody />
             </DrawerBody>
 
             <DrawerFooter justifyContent={"center"}>
