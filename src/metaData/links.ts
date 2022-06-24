@@ -12,18 +12,13 @@ import { BiSearch } from "solid-icons/bi";
 import { RiDocumentArticleLine } from "solid-icons/ri";
 
 import { BsPencilSquare } from "solid-icons/bs";
-import { AiOutlineLogin } from 'solid-icons/ai'
-import { SiGnuprivacyguard } from 'solid-icons/si'
+import { AiOutlineLogin } from "solid-icons/ai";
+import { SiGnuprivacyguard } from "solid-icons/si";
 export const menuLinks = [
   {
     name: "Home",
     icon: VscHome,
     href: "",
-  },
-  {
-    name: "Articles",
-    icon: RiDocumentArticleLine,
-    href: "articles",
   },
 
   {

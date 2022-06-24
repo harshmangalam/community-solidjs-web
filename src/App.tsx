@@ -6,7 +6,6 @@ import AuthProvider from "@/context/authProvider";
 
 // routes
 const HomeRoute = lazy(() => import("@/routes/HomeRoute"));
-const ArticlesRoute = lazy(() => import("@/routes/ArticlesRoute"));
 const ListingRoute = lazy(() => import("@/routes/ListingRoute"));
 const ProfileRoute = lazy(() => import("@/routes/ProfileRoute"));
 const TagsRoute = lazy(() => import("@/routes/TagsRoute"));
@@ -19,7 +18,7 @@ const MainLayout = lazy(() => import("@/layouts/MainLayout"));
 const AuthLayout = lazy(() => import("@/layouts/AuthLayout"));
 
 axios.defaults.baseURL = "http://localhost:4000";
-axios.defaults.withCredentials = true
+axios.defaults.withCredentials = true;
 const App: Component = () => {
   return (
     <HopeProvider config={{ initialColorMode: "dark" }}>
@@ -33,7 +32,6 @@ const App: Component = () => {
               </Route>
               <Route path="/" element={<MainLayout />}>
                 <Route path="/" element={<HomeRoute />} />
-                <Route path="/articles" element={<ArticlesRoute />} />
                 <Route path="/listings" element={<ListingRoute />} />
                 <Route path="/tags" element={<TagsRoute />} />
                 <Route path="/:userName" element={<ProfileRoute />} />
