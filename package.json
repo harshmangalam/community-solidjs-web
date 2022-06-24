@@ -10,6 +10,7 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@types/js-cookie": "^3.0.2",
     "typescript": "^4.6.4",
     "vite": "^2.9.9",
     "vite-plugin-solid": "^2.2.6"
@@ -18,6 +19,7 @@
     "@hope-ui/solid": "^0.6.2",
     "@stitches/core": "^1.2.8",
     "axios": "^0.27.2",
+    "js-cookie": "^3.0.1",
     "solid-app-router": "^0.3.3",
     "solid-icons": "^0.4.13",
     "solid-js": "^1.4.2",

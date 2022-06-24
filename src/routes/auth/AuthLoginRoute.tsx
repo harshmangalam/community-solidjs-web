@@ -41,6 +41,7 @@ const AuthLoginRoute: Component = () => {
       );
 
       const res = await login(validationResult);
+      console.log(res.data)
 
       notificationService.show({
         title: "You have loggedin successfully",

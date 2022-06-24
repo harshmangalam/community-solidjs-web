@@ -3,7 +3,9 @@ lockfileVersion: 5.4
 specifiers:
   '@hope-ui/solid': ^0.6.2
   '@stitches/core': ^1.2.8
+  '@types/js-cookie': ^3.0.2
   axios: ^0.27.2
+  js-cookie: ^3.0.1
   solid-app-router: ^0.3.3
   solid-icons: ^0.4.13
   solid-js: ^1.4.2
@@ -17,6 +19,7 @@ dependencies:
   '@hope-ui/solid': 0.6.2_edavwlyd5jabdmps4672dxwe6q
   '@stitches/core': 1.2.8
   axios: 0.27.2
+  js-cookie: 3.0.1
   solid-app-router: 0.3.3_solid-js@1.4.2
   solid-icons: 0.4.13_solid-js@1.4.2
   solid-js: 1.4.2
@@ -24,6 +27,7 @@ dependencies:
   yup: 0.32.11
 
 devDependencies:
+  '@types/js-cookie': 3.0.2
   typescript: 4.6.4
   vite: 2.9.9
   vite-plugin-solid: 2.2.6
@@ -407,6 +411,10 @@ packages:
   /@stitches/core/1.2.8:
     resolution: {integrity: sha512-Gfkvwk9o9kE9r9XNBmJRfV8zONvXThnm1tcuojL04Uy5uRyqg93DC83lDebl0rocZCfKSjUv+fWYtMQmEDJldg==}
     dev: false
+
+  /@types/js-cookie/3.0.2:
+    resolution: {integrity: sha512-6+0ekgfusHftJNYpihfkMu8BWdeHs9EOJuGcSofErjstGPfPGEu9yTu4t460lTzzAMl2cM5zngQJqPMHbbnvYA==}
+    dev: true
 
   /@types/lodash/4.14.182:
     resolution: {integrity: sha512-/THyiqyQAP9AfARo4pF+aCGcyiQ94tX/Is2I7HofNRqoYLgN1PBoOWu2/zTA5zMxzP5EFutMtWtGAFRKUe961Q==}
@@ -815,6 +823,11 @@ packages:
     resolution: {integrity: sha512-DBVOQNiPKnGMxRMLIYSwERAS5MVY1B7xYiGnpgctsOFvVDz9f9PFXXxMcTOHuoqYp4NK9qFYQaIC1NRRxLMpBQ==}
     engines: {node: '>=12.13'}
     dev: true
+
+  /js-cookie/3.0.1:
+    resolution: {integrity: sha512-+0rgsUXZu4ncpPxRL+lNEptWMOWl9etvPHc/koSRp6MPwpRYAhmk0dUG00J4bxVV3r9uUzfo24wW0knS07SKSw==}
+    engines: {node: '>=12'}
+    dev: false
 
   /js-tokens/4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
