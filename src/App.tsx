@@ -5,7 +5,8 @@ import { Component, lazy, Suspense } from "solid-js";
 import AuthProvider from "@/context/authProvider";
 
 // routes
-const FeedRoute = lazy(() => import("@/routes/FeedRoute"));
+const HomeRoute = lazy(() => import("@/routes/HomeRoute"));
+const ArticlesRoute = lazy(() => import("@/routes/ArticlesRoute"));
 const ListingRoute = lazy(() => import("@/routes/ListingRoute"));
 const ProfileRoute = lazy(() => import("@/routes/ProfileRoute"));
 const TagsRoute = lazy(() => import("@/routes/TagsRoute"));
@@ -31,7 +32,8 @@ const App: Component = () => {
                 <Route path="/signup" element={<AuthSignupRoute />} />
               </Route>
               <Route path="/" element={<MainLayout />}>
-                <Route path="/" element={<FeedRoute />} />
+                <Route path="/" element={<HomeRoute />} />
+                <Route path="/articles" element={<ArticlesRoute />} />
                 <Route path="/listings" element={<ListingRoute />} />
                 <Route path="/tags" element={<TagsRoute />} />
                 <Route path="/:userName" element={<ProfileRoute />} />

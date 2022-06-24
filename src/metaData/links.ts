@@ -21,9 +21,9 @@ export const menuLinks = [
     href: "",
   },
   {
-    name: "Feeds",
+    name: "Articles",
     icon: RiDocumentArticleLine,
-    href: "",
+    href: "articles",
   },
 
   {

@@ -21,12 +21,15 @@ import { handleSchemaError } from "@/utils/handleSchemaError";
 import { handleServerError } from "@/utils/handleServerError";
 import { ValidationError } from "yup";
 import { AxiosError } from "axios";
+import { useAuthDispatch } from "@/context/authProvider";
 
 const AuthLoginRoute: Component = () => {
   const navigate = useNavigate();
   const [email, setEmail] = createSignal("");
   const [password, setPassword] = createSignal("");
   const [errors, setErrors] = createSignal(loginErrorFields);
+
+  const authDispatch = useAuthDispatch();
 
   async function onSubmit(e: SubmitEvent) {
     e.preventDefault();
@@ -40,7 +43,7 @@ const AuthLoginRoute: Component = () => {
         { abortEarly: false, strict: true }
       );
 
-      await login(validationResult);
+      const res = await login(validationResult);
 
       notificationService.show({
         title: "You have loggedin successfully",
@@ -49,6 +52,7 @@ const AuthLoginRoute: Component = () => {
         status: "success",
       });
 
+      authDispatch.authenticate(res.data.user);
       navigate("/", {
         replace: true,
       });

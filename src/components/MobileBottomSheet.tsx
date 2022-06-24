@@ -4,6 +4,9 @@ import { BsBookmarkHeart } from "solid-icons/bs";
 import { CgSearch } from "solid-icons/cg";
 import { VscHome } from "solid-icons/vsc";
 import { Flex, IconButton } from "@hope-ui/solid";
+import ThemeSwitcher from "./ThemeSwitcher";
+import Notifications from "./Header/Notifications";
+import ProfileMenu from "./Header/ProfileMenu";
 
 const MobileBottomSheet: Component = () => {
   return (
@@ -18,31 +21,9 @@ const MobileBottomSheet: Component = () => {
       bg="$neutral4"
       h={"$16"}
     >
-      <IconButton
-        aria-label="Home"
-        icon={<VscHome size={28} />}
-        variant="ghost"
-        colorScheme={"neutral"}
-      />
-      <IconButton
-        aria-label="Bookmarks"
-        icon={<BsBookmarkHeart size={28} />}
-        variant="ghost"
-        colorScheme={"neutral"}
-      />
-      <IconButton
-        aria-label="Search"
-        icon={<CgSearch size={28} />}
-        variant="ghost"
-        colorScheme={"neutral"}
-      />
-
-      <IconButton
-        aria-label="Search"
-        icon={<BsBell size={28} />}
-        variant="ghost"
-        colorScheme={"neutral"}
-      />
+      <ThemeSwitcher />
+      <Notifications />
+      <ProfileMenu />
     </Flex>
   );
 };

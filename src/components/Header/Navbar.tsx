@@ -1,21 +1,12 @@
 import { Component } from "solid-js";
-import { BsGithub } from "solid-icons/bs";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
-import Notifications from "@/components/Notifications";
-import ProfileMenu from "@/components/ProfileMenu";
+import Notifications from "@/components/Header/Notifications";
+import ProfileMenu from "@/components/Header/ProfileMenu";
 
-import { BsPencilSquare } from "solid-icons/bs";
-import Search from "@/components/Search";
+import Search from "@/components/Header/Search";
 import Logo from "@/components/Logo";
 import MobileDrawer from "@/components/Sidebar/MobileDrawer";
-import {
-  Box,
-  Button,
-  Flex,
-  HStack,
-  IconButton,
-  useColorModeValue,
-} from "@hope-ui/solid";
+import { Box, Flex, HStack, useColorModeValue } from "@hope-ui/solid";
 const Navbar: Component = () => {
   return (
     <Flex
@@ -46,20 +37,7 @@ const Navbar: Component = () => {
         <Search />
       </Box>
 
-      <HStack spacing={"$2"} display={{ "@initial": "none", "@lg": "flex" }}>
-        <Button
-          variant={"solid"}
-          colorScheme="info"
-          leftIcon={<BsPencilSquare size={20} />}
-        >
-          Write
-        </Button>
-        <IconButton
-          aria-label="Github Repo"
-          icon={<BsGithub size={24} />}
-          variant={"ghost"}
-          colorScheme="neutral"
-        />
+      <HStack spacing={"$2"} display={{ "@initial": "none", "@sm": "flex" }}>
         <ThemeSwitcher />
         <Notifications />
         <ProfileMenu />

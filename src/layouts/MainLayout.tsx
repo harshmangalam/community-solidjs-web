@@ -3,7 +3,7 @@ import { Outlet } from "solid-app-router";
 import type { Component } from "solid-js";
 
 import MobileBottomSheet from "@/components/MobileBottomSheet";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/Header/Navbar"
 import MenuSidebar from "@/components/Sidebar/MenuSidebar";
 import RightSidebar from "@/components/Sidebar/RightSidebar";
 
@@ -26,7 +26,7 @@ const MainLayout: Component = () => {
       </Box>
       <RightSidebar />
 
-      <Box display={{ "@initial": "block", "@md": "none" }}>
+      <Box display={{ "@initial": "block", "@sm": "none" }}>
         <MobileBottomSheet />
       </Box>
     </>

@@ -17,4 +17,8 @@ const signup = async (payload: SignupPayload) => {
   return axios.post("/auth/signup", payload);
 };
 
-export { login, signup };
+const logout = async () => {
+  return axios.get("/auth/logout");
+};
+
+export { login, signup, logout };

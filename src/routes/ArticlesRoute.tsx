@@ -3,12 +3,12 @@ import { Component, For } from "solid-js";
 
 import ArticleCard from "@/components/Articles/ArticleCard";
 
-const FeedsRoute: Component = () => {
+const ArticlesRoute: Component = () => {
   return (
     <Box>
       <HStack justifyContent={"space-between"} px="$4" spacing={"$4"}>
         <Heading flexGrow={1} fontSize={"$2xl"}>
-          My Feeds
+          Articles
         </Heading>
       </HStack>
       <Divider py={"$2"} />
@@ -22,4 +22,4 @@ const FeedsRoute: Component = () => {
   );
 };
 
-export default FeedsRoute;
+export default ArticlesRoute;
