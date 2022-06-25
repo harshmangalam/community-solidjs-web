@@ -1,5 +1,4 @@
 import {
-  AspectRatio,
   Avatar,
   Box,
   Button,
@@ -8,16 +7,15 @@ import {
   GridItem,
   Heading,
   HStack,
-  IconButton,
   Image,
   Tag,
   Text,
   VStack,
 } from "@hope-ui/solid";
 import { Component, For } from "solid-js";
-import { BsBookmarkHeart } from "solid-icons/bs";
+import { BsBookmark } from "solid-icons/bs";
 import { BsHeart } from "solid-icons/bs";
-import { FaCommentAlt } from "solid-icons/fa";
+
 const ArticleCard: Component = (props) => {
   return (
     <Box borderBottomWidth={"thin"} p={"$4"} borderColor="$neutral6">
@@ -44,7 +42,9 @@ const ArticleCard: Component = (props) => {
         <GridItem colSpan={{ "@initial": 4, "@md": 3 }}>
           <VStack alignItems={"flex-start"} spacing="$2">
             <Heading fontSize={"$2xl"}>{props.title}</Heading>
-            <Text textAlign={"justify"}>{props.content}</Text>
+            <Text noOfLines={4} textAlign={"justify"}>
+              {props.content}
+            </Text>
 
             <Flex flexWrap="wrap" gap="$2" mt={"$4"}>
               <For each={props.tags}>
@@ -68,7 +68,7 @@ const ArticleCard: Component = (props) => {
       <HStack mt={"$4"} spacing={"$4"}>
         <Button
           aria-label="Bookmark"
-          leftIcon={<BsBookmarkHeart size={20} />}
+          leftIcon={<BsBookmark size={20} />}
           variant="ghost"
           colorScheme={"neutral"}
         >
@@ -77,14 +77,6 @@ const ArticleCard: Component = (props) => {
         <Button
           aria-label="Heart"
           leftIcon={<BsHeart size={20} />}
-          variant="ghost"
-          colorScheme={"neutral"}
-        >
-          566
-        </Button>
-        <Button
-          aria-label="Comment"
-          leftIcon={<FaCommentAlt size={20} />}
           variant="ghost"
           colorScheme={"neutral"}
         >

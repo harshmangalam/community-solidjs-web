@@ -13,6 +13,8 @@ const TagsRoute = lazy(() => import("@/routes/TagsRoute"));
 const AuthLoginRoute = lazy(() => import("@/routes/auth/AuthLoginRoute"));
 const AuthSignupRoute = lazy(() => import("@/routes/auth/AuthSignupRoute"));
 
+const WriteArticleRoute = lazy(() => import("@/routes/WriteArticle"));
+
 // layouts
 const MainLayout = lazy(() => import("@/layouts/MainLayout"));
 const AuthLayout = lazy(() => import("@/layouts/AuthLayout"));
@@ -30,6 +32,7 @@ const App: Component = () => {
                 <Route path="/" element={<AuthLoginRoute />} />
                 <Route path="/signup" element={<AuthSignupRoute />} />
               </Route>
+              <Route path="/write-article" element={<WriteArticleRoute />} />
               <Route path="/" element={<MainLayout />}>
                 <Route path="/" element={<HomeRoute />} />
                 <Route path="/listings" element={<ListingRoute />} />

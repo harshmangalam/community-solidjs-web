@@ -54,7 +54,7 @@ const AuthSignupRoute: Component = () => {
       navigate("/auth");
     } catch (error: any) {
       if (error instanceof ValidationError) {
-        let schemaErrors = handleSchemaError(error);
+        let schemaErrors = handleSchemaError(error, signupErrorFields);
         setErrors(schemaErrors);
       }
       if (error instanceof AxiosError) {

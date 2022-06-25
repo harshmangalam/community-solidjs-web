@@ -1,9 +1,8 @@
-import { loginErrorFields, signupErrorFields } from "@/schema";
 import { ValidationError } from "yup";
 
-export const handleSchemaError = (error: ValidationError) => {
+export const handleSchemaError = (error: ValidationError, errorField: {}) => {
   const errors = {
-    ...signupErrorFields,
+    ...errorField,
   };
   error.inner.forEach(({ path, message }) => {
     errors[path] = message;

@@ -58,7 +58,7 @@ const AuthLoginRoute: Component = () => {
       });
     } catch (error: any) {
       if (error instanceof ValidationError) {
-        let schemaErrors = handleSchemaError(error);
+        let schemaErrors = handleSchemaError(error, loginErrorFields);
         setErrors(schemaErrors);
       }
       if (error instanceof AxiosError) {

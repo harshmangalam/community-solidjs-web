@@ -1,16 +1,13 @@
 import {
-  BsBookmarkHeart,
+  BsBookmark,
   BsGithub,
   BsTwitter,
   BsViewList,
 } from "solid-icons/bs";
 import { FaBrandsDev } from "solid-icons/fa";
-import { RiDocumentDraftLine } from "solid-icons/ri";
 import { TiTags } from "solid-icons/ti";
 import { VscHome } from "solid-icons/vsc";
 import { BiSearch } from "solid-icons/bi";
-import { RiDocumentArticleLine } from "solid-icons/ri";
-
 import { BsPencilSquare } from "solid-icons/bs";
 import { AiOutlineLogin } from "solid-icons/ai";
 import { SiGnuprivacyguard } from "solid-icons/si";
@@ -45,13 +42,8 @@ export const authUserLinks = [
     href: "write-article",
   },
   {
-    name: "Drafts",
-    icon: RiDocumentDraftLine,
-    href: "drafts",
-  },
-  {
     name: "Bookmarks",
-    icon: BsBookmarkHeart,
+    icon: BsBookmark,
     href: "bookmarks",
   },
 ];
