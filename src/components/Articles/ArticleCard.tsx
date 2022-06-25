@@ -18,7 +18,7 @@ import { Component, For } from "solid-js";
 import { BsBookmarkHeart } from "solid-icons/bs";
 import { BsHeart } from "solid-icons/bs";
 import { FaCommentAlt } from "solid-icons/fa";
-const ArticleCard: Component = () => {
+const ArticleCard: Component = (props) => {
   return (
     <Box borderBottomWidth={"thin"} p={"$4"} borderColor="$neutral6">
       <Flex justifyContent={"space-between"} alignItems="center">
@@ -29,12 +29,12 @@ const ArticleCard: Component = () => {
           ></Avatar>
           <VStack alignItems={"flex-start"}>
             <HStack spacing={"$2"}>
-              <Heading>Harsh Mangalam</Heading>
+              <Heading>{props.author.name}</Heading>
               <Box as="span">&bull;</Box>
-              <Text>Jun 7, 2022</Text>
+              <Text>{new Date(props.createdAt).toDateString()}</Text>
             </HStack>
             <HStack spacing={"$2"}>
-              <Text>8 mins read</Text>
+              <Text>{props.readTime}</Text>
             </HStack>
           </VStack>
         </HStack>
@@ -43,23 +43,12 @@ const ArticleCard: Component = () => {
       <Grid templateColumns="repeat(4, 1fr)" gap="$4" mt={"$4"}>
         <GridItem colSpan={{ "@initial": 4, "@md": 3 }}>
           <VStack alignItems={"flex-start"} spacing="$2">
-            <Heading fontSize={"$2xl"}>
-              PostgreSQL Fuzzy Text Search: Not so fuzzy to fuzziest
-            </Heading>
-            <Text textAlign={"justify"}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Et sequi
-              ducimus eum molestiae. Possimus minus tenetur veniam quod
-              distinctio eaque, aut rem ipsa vero, ut vitae quibusdam quis
-              cupiditate modi, beatae fugiat excepturi optio dicta explicabo
-              quam sequi repellendus aperiam dolore maxime. Vitae quae, iure
-              sunt suscipit quia tempora, sit nobis debitis illum nesciunt ex
-              non. Dicta dolor magni mollitia atque animi doloremque totam ullam
-              a possimus iusto. Obcaecati, distinctio.
-            </Text>
+            <Heading fontSize={"$2xl"}>{props.title}</Heading>
+            <Text textAlign={"justify"}>{props.content}</Text>
 
             <Flex flexWrap="wrap" gap="$2" mt={"$4"}>
-              <For each={[...Array(4)]}>
-                {(tag) => <Tag colorScheme="info">Javascript</Tag>}
+              <For each={props.tags}>
+                {(tag) => <Tag colorScheme="info">{tag.name}</Tag>}
               </For>
             </Flex>
           </VStack>
@@ -67,8 +56,8 @@ const ArticleCard: Component = () => {
 
         <GridItem colSpan={{ "@initial": 4, "@md": 1 }}>
           <Image
-            src="https://bit.ly/3pq0AcS"
-            alt="Monkey D. Luffy"
+            src={props.coverImage}
+            alt={props.title}
             objectFit="cover"
             w={"$full"}
             h={"$40"}
