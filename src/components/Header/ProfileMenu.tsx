@@ -16,7 +16,9 @@ import { RiDocumentDraftLine } from "solid-icons/ri";
 import { BsBookmarkHeart } from "solid-icons/bs";
 import { logout } from "@/services";
 import { AxiosError } from "axios";
+import { useAuthDispatch } from "@/context/authProvider";
 const ProfileMenu: Component = () => {
+  const authDispatch = useAuthDispatch()
   const handleLogout = async () => {
     try {
       await logout();
@@ -26,6 +28,8 @@ const ProfileMenu: Component = () => {
         closable: true,
         status: "success",
       });
+
+      authDispatch.logout()
     } catch (error) {
       console.log(error);
       if (error instanceof AxiosError) {

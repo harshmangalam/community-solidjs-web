@@ -33,9 +33,15 @@ const AuthProvider: Component = (props) => {
     setStore("isAuthenticated", true);
     setStore("currentUser", user);
   }
+
+  function logout() {
+    setStore("isAuthenticated", false);
+    setStore("currentUser", {});
+  }
+
   return (
     <StateContext.Provider value={store}>
-      <DispatchContext.Provider value={{ authenticate }}>
+      <DispatchContext.Provider value={{ authenticate ,logout}}>
         {props.children}
       </DispatchContext.Provider>
     </StateContext.Provider>
