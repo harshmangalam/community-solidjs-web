@@ -6,6 +6,7 @@ import AuthProvider from "@/context/authProvider";
 
 // routes
 const HomeRoute = lazy(() => import("@/routes/HomeRoute"));
+const ArticleDetailRoute = lazy(() => import("@/routes/ArticleDetailRoute"));
 const ListingRoute = lazy(() => import("@/routes/ListingRoute"));
 const ProfileRoute = lazy(() => import("@/routes/ProfileRoute"));
 const TagsRoute = lazy(() => import("@/routes/TagsRoute"));
@@ -34,8 +35,13 @@ const App: Component = () => {
                 <Route path="/signup" element={<AuthSignupRoute />} />
               </Route>
               <Route path="/write-article" element={<WriteArticleRoute />} />
+
               <Route path="/" element={<MainLayout />}>
                 <Route path="/" element={<HomeRoute />} />
+                <Route
+                  path="/articles/:articleId"
+                  element={<ArticleDetailRoute />}
+                />
                 <Route path="/listings" element={<ListingRoute />} />
                 <Route path="/tags" element={<TagsRoute />} />
                 <Route path="/tags/:tagId" element={<TagDetailRoute />} />

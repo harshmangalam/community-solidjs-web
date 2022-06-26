@@ -16,6 +16,8 @@ import { Component, For } from "solid-js";
 import { BsBookmark } from "solid-icons/bs";
 import { BsHeart } from "solid-icons/bs";
 import { Link } from "solid-app-router";
+import LikeArticle from "./LikeArticle";
+import BookmarkArticle from "./BookmarkArticle";
 
 const ArticleCard: Component = (props) => {
   return (
@@ -42,7 +44,9 @@ const ArticleCard: Component = (props) => {
       <Grid templateColumns="repeat(4, 1fr)" gap="$4" mt={"$4"}>
         <GridItem colSpan={{ "@initial": 4, "@md": 3 }}>
           <VStack alignItems={"flex-start"} spacing="$2">
-            <Heading fontSize={"$2xl"}>{props.title}</Heading>
+            <Heading as={Link} href={`/articles/${props.id}`} fontSize={"$2xl"}>
+              {props.title}
+            </Heading>
             <Text noOfLines={4} textAlign={"justify"}>
               {props.content}
             </Text>
@@ -71,22 +75,8 @@ const ArticleCard: Component = (props) => {
       </Grid>
 
       <HStack mt={"$4"} spacing={"$4"}>
-        <Button
-          aria-label="Bookmark"
-          leftIcon={<BsBookmark size={20} />}
-          variant="ghost"
-          colorScheme={"neutral"}
-        >
-          45
-        </Button>
-        <Button
-          aria-label="Heart"
-          leftIcon={<BsHeart size={20} />}
-          variant="ghost"
-          colorScheme={"neutral"}
-        >
-          566
-        </Button>
+        <BookmarkArticle />
+        <LikeArticle />
       </HStack>
     </Box>
   );
