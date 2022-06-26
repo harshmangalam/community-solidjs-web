@@ -8,6 +8,7 @@ import {
   Text,
   VStack,
 } from "@hope-ui/solid";
+import { Link } from "solid-app-router";
 
 import { FaSolidPlus } from "solid-icons/fa";
 import { Component } from "solid-js";
@@ -23,23 +24,16 @@ const TagCard: Component = (props) => {
       w="$full"
       rounded={"$lg"}
       bg={"$neutral4"}
+      as={Link}
+      href={`/tags/${props.id}`}
     >
       <HStack spacing={"$4"}>
         <Image src={props.coverImage} w={"$10"} h={"$10"} rounded="$lg" />
         <VStack alignItems={"flex-start"}>
           <Heading>{props.name}</Heading>
-          <Text fontSize={"$sm"}>40557 articles</Text>
+          <Text fontSize={"$sm"}>{props._count.articles} articles</Text>
         </VStack>
       </HStack>
-
-      <IconButton
-        variant={"solid"}
-        colorScheme="info"
-        aria-label="Follow Tag"
-        icon={<Icon as={FaSolidPlus} />}
-        size="sm"
-        rounded={"$full"}
-      />
     </Flex>
   );
 };

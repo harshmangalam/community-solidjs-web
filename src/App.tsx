@@ -9,6 +9,7 @@ const HomeRoute = lazy(() => import("@/routes/HomeRoute"));
 const ListingRoute = lazy(() => import("@/routes/ListingRoute"));
 const ProfileRoute = lazy(() => import("@/routes/ProfileRoute"));
 const TagsRoute = lazy(() => import("@/routes/TagsRoute"));
+const TagDetailRoute = lazy(() => import("@/routes/TagDetailRoute"));
 
 const AuthLoginRoute = lazy(() => import("@/routes/auth/AuthLoginRoute"));
 const AuthSignupRoute = lazy(() => import("@/routes/auth/AuthSignupRoute"));
@@ -37,6 +38,7 @@ const App: Component = () => {
                 <Route path="/" element={<HomeRoute />} />
                 <Route path="/listings" element={<ListingRoute />} />
                 <Route path="/tags" element={<TagsRoute />} />
+                <Route path="/tags/:tagId" element={<TagDetailRoute />} />
                 <Route path="/:userName" element={<ProfileRoute />} />
               </Route>
             </Routes>

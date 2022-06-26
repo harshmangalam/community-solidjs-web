@@ -4,4 +4,8 @@ const fetchTags = async () => {
   return axios.get("/tags");
 };
 
-export { fetchTags };
+const fetchTagDetail = async (tagId: string) => {
+  return axios.get(`/tags/${tagId}`);
+};
+
+export { fetchTags,fetchTagDetail };

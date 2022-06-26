@@ -15,6 +15,7 @@ import {
 import { Component, For } from "solid-js";
 import { BsBookmark } from "solid-icons/bs";
 import { BsHeart } from "solid-icons/bs";
+import { Link } from "solid-app-router";
 
 const ArticleCard: Component = (props) => {
   return (
@@ -48,7 +49,11 @@ const ArticleCard: Component = (props) => {
 
             <Flex flexWrap="wrap" gap="$2" mt={"$4"}>
               <For each={props.tags}>
-                {(tag) => <Tag colorScheme="info">{tag.name}</Tag>}
+                {(tag) => (
+                  <Tag as={Link} href={`/tags/${tag.id}`} colorScheme="info">
+                    {tag.name}
+                  </Tag>
+                )}
               </For>
             </Flex>
           </VStack>
