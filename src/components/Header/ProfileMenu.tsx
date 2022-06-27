@@ -61,7 +61,6 @@ const ProfileMenu: Component = () => {
           </HStack>
         </MenuItem>
         <MenuItem icon={<RiDocumentDraftLine size={24} />}>Dashboard</MenuItem>
-        <MenuItem icon={<RiDocumentDraftLine size={24} />}>Drafts</MenuItem>
         <MenuItem icon={<BsBookmarkHeart size={24} />}>Bookmarks</MenuItem>
         <MenuItem icon={<IoSettingsOutline size={24} />}>Settings</MenuItem>
         <MenuItem

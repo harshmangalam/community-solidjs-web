@@ -42,7 +42,7 @@ const App: Component = () => {
                   path="/articles/:articleId"
                   element={<ArticleDetailRoute />}
                 />
-                <Route path="/listings" element={<ListingRoute />} />
+
                 <Route path="/tags" element={<TagsRoute />} />
                 <Route path="/tags/:tagId" element={<TagDetailRoute />} />
                 <Route path="/:userName" element={<ProfileRoute />} />

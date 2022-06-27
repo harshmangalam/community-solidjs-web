@@ -1,9 +1,4 @@
-import {
-  BsBookmark,
-  BsGithub,
-  BsTwitter,
-  BsViewList,
-} from "solid-icons/bs";
+import { BsBookmark, BsGithub, BsTwitter } from "solid-icons/bs";
 import { FaBrandsDev } from "solid-icons/fa";
 import { TiTags } from "solid-icons/ti";
 import { VscHome } from "solid-icons/vsc";
@@ -23,11 +18,7 @@ export const menuLinks = [
     icon: TiTags,
     href: "tags",
   },
-  {
-    name: "Listings",
-    icon: BsViewList,
-    href: "listings",
-  },
+
   {
     name: "Search",
     icon: BiSearch,
