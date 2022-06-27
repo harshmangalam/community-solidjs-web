@@ -8,4 +8,8 @@ const fetchTagDetail = async (tagId: string) => {
   return axios.get(`/tags/${tagId}`);
 };
 
-export { fetchTags,fetchTagDetail };
+const followUnfollowTag = async (tagId: string) => {
+  return axios.patch(`/tags/${tagId}/followUnfollow`);
+};
+
+export { fetchTags,fetchTagDetail ,followUnfollowTag};

@@ -12,22 +12,29 @@ const AuthProvider: Component = (props) => {
     isLoading: true,
   });
 
-  onMount(async () => {
+  onMount(() => {
     const token = cookie.get("token");
+    if (!token) {
+      setStore("isLoading",false)
+      return;
+    }
+    handleFetchCurrentUser();
+  });
+
+  async function handleFetchCurrentUser() {
     try {
-      if (!token) {
-        return;
-      }
+      setStore("isLoading", true);
       const res = await fetchCurrentUser();
       setStore("isAuthenticated", true);
       setStore("currentUser", res.data.user);
     } catch (error) {
       console.log(error);
+      console.log(error);
       cookie.remove("token");
     } finally {
       setStore("isLoading", false);
     }
-  });
+  }
 
   function authenticate(user) {
     setStore("isAuthenticated", true);
@@ -41,7 +48,9 @@ const AuthProvider: Component = (props) => {
 
   return (
     <StateContext.Provider value={store}>
-      <DispatchContext.Provider value={{ authenticate ,logout}}>
+      <DispatchContext.Provider
+        value={{ authenticate, logout, handleFetchCurrentUser }}
+      >
         {props.children}
       </DispatchContext.Provider>
     </StateContext.Provider>

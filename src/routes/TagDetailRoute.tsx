@@ -1,13 +1,12 @@
 import ArticleCard from "@/components/Articles/ArticleCard";
+import FollowTag from "@/components/Tag/FollowTag";
+import { useAuthState } from "@/context/authProvider";
 import { fetchTagDetail } from "@/services";
 import {
-  Avatar,
   Box,
-  Button,
   Divider,
   Flex,
   Heading,
-  HStack,
   Image,
   SimpleGrid,
   Stack,
@@ -19,11 +18,34 @@ import {
 } from "@hope-ui/solid";
 import { useParams } from "solid-app-router";
 import { FaSolidUsers } from "solid-icons/fa";
-import { createResource, For } from "solid-js";
+import {
+  createEffect,
+  createResource,
+  createSignal,
+  For,
+  Show,
+} from "solid-js";
 
 export default function TagDetailRoute() {
+  const [isFollowing, setIsFollowing] = createSignal(false);
   const params = useParams();
-  const [data] = createResource(() => params.tagId, fetchTagDetail);
+  const authState = useAuthState();
+  const [data, { refetch }] = createResource(
+    () => params.tagId,
+    fetchTagDetail
+  );
+
+  createEffect(() => {
+    const index = authState.currentUser.followingTags.findIndex(
+      (t) => t.id === params.tagId
+    );
+
+    if (index >= 0) {
+      setIsFollowing(true);
+    } else {
+      setIsFollowing(false);
+    }
+  });
 
   return (
     <Box>
@@ -37,9 +59,13 @@ export default function TagDetailRoute() {
             justifyContent={"space-between"}
           >
             <Heading fontSize={"$3xl"}>{data()?.data.tag.name}</Heading>
-            <Button colorScheme={"info"} rounded={"$full"}>
-              Follow Tag
-            </Button>
+            <Show when={authState.isAuthenticated}>
+              <FollowTag
+                refetchTagDetail={refetch}
+                tagId={data()?.data.tag.id}
+                isFollowing={isFollowing()}
+              />
+            </Show>
           </Stack>
           <Text textAlign={"justify"}>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. A maxime
@@ -61,7 +87,7 @@ export default function TagDetailRoute() {
       >
         <Tag colorScheme={"info"} size="lg">
           <TagLeftIcon as={FaSolidUsers} />
-          <TagLabel>125 Followers</TagLabel>
+          <TagLabel>{data()?.data.tag._count?.followers} Followers</TagLabel>
         </Tag>
         <Tag colorScheme={"accent"} size="lg">
           <TagLeftIcon as={FaSolidUsers} />
